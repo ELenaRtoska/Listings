@@ -1,0 +1,16 @@
+﻿@model Listings.Models.AddToCityModel
+@{
+    ViewBag.Title = "AddToCity";
+}
+
+<h2>Add album to store: @ViewBag.CityName</h2>
+
+@using (Html.BeginForm("AddToCity", "Cities"))
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.listingId , new SelectList(Model.listings, "Id", "Name"), new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.cityId)
+    <button type="submit" class="btn btn-default">Save</button>
+}
+
